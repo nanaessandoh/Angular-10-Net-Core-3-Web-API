@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
+          <a class="navbar-brand"><img src="assets/navbar.png" width="25" height="25" alt="" loading="lazy"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" (click)="openEmp()">Employees</a>
+                <a class="nav-link" (click)="openDep()">Departments</a>
+              </div>
+            </div>
+          </nav>
+      
+   
+          <app-department *ngIf="depPage"></app-department>
+          <app-employee *ngIf="empPage"></app-employee>
+
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event.target.value)">
+</mat-form-field>
+
+
+<div style="overflow: auto;">
+
+    <mat-table [dataSource] = "listData" matSort>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef = "let row; columns: displayedColumns;"></mat-row>
+
+        <!-- Department ID Column -->
+        <ng-container matColumnDef="departmentID">
+          <mat-header-cell *matHeaderCellDef >Department ID</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.departmentID}} </mat-cell>
+        </ng-container>
+
+        <!-- Department Name Column -->
+        <ng-container matColumnDef="departmentName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Department Name</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.departmentName}} </mat-cell>
+        </ng-container>
+
+        <!-- Created On Column -->
+        <ng-container matColumnDef="createdOn">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Created On</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.createdOn}} </mat-cell>
+        </ng-container>
+
+        <!-- Options Column -->
+        <ng-container matColumnDef="Options">
+            <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="onEdit(row)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="onDelete(row)">
+                    <mat-icon>delete_outline</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+    </mat-table>
+
+
+    <div class="mt-4 ml-2">
+        <button mat-raised-button color="primary" (click)="onAdd()">Add Department</button>
+    </div>
+
+<div *ngIf="isLoading" 
+    style="display: flex; justify-content: center; background: white; overflow:hidden; padding-top: 50px;">
+    <mat-progress-spinner
+    color="primary" 
+    mode="indeterminate">
+</mat-progress-spinner>
+</div>
+
+
+</div>
