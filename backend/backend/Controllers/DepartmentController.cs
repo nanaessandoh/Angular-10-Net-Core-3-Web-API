@@ -75,8 +75,6 @@ namespace backend.Controllers
             {
                 return NotFound(); // 404 Not found
             }
-
-
             
             _IDepartment.UpdateDepartment(deptUpdate,deptFromRepo);
             return NoContent(); // 204 No Content Success

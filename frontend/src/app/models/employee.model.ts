@@ -1,12 +1,12 @@
-export class Eemployee{
+export class Employee{
 
     constructor(
-        public EmployeeID: number,
-        public EmployeeName: string,
-        public Department: string,
-        public Gender: string,
-        public DOB: string,
-        public DOJ: string
+        public employeeID: number,
+        public employeeName: string,
+        public department: string,
+        public gender: string,
+        public dob: string,
+        public doj: string
 
     ){}
 }

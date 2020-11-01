@@ -1,8 +1,8 @@
 export class Department{
 
     constructor(
-        public DepartmentID : number,
-        public DepartmentName : string,
-        public CreatedOn: string
+        public departmentID : number,
+        public departmentName : string,
+        public createdOn: string
     ){}
 }

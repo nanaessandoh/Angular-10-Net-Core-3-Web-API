@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Department } from 'src/app/models/department.model';
 import { DepartmentService } from 'src/app/services/department.service';
-import {MatSort} from '@angular/material/sort';
-import {ThemePalette} from '@angular/material/core';
-import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
-import { MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSort } from '@angular/material/sort';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { MatDialog} from '@angular/material/dialog';
 import { AddDepComponent } from 'src/app/department/add-dep/add-dep.component';
 import { EditDepComponent } from 'src/app/department/edit-dep/edit-dep.component';
 import { DeleteDepComponent } from 'src/app/department/delete-dep/delete-dep.component';

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from  '@angular/common/http';
 
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { EmployeeComponent } from './employee/employee.component';
 import { ShowEmpComponent } from './employee/show-emp/show-emp.component';
 import { EditEmpComponent } from './employee/edit-emp/edit-emp.component';
+import { DeleteEmpComponent } from './employee/delete-emp/delete-emp.component';
 import { DepartmentComponent } from './department/department.component';
 import { ShowDepComponent } from './department/show-dep/show-dep.component';
 import { AddDepComponent } from './department/add-dep/add-dep.component';
@@ -42,7 +42,8 @@ import { DeleteDepComponent } from './department/delete-dep/delete-dep.component
     AddDepComponent,
     EditDepComponent,
     AddEmpComponent,
-    DeleteDepComponent
+    DeleteDepComponent,
+    DeleteEmpComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +73,9 @@ import { DeleteDepComponent } from './department/delete-dep/delete-dep.component
     AddDepComponent,
     EditDepComponent,
     DeleteDepComponent,
+    EditEmpComponent,
+    AddEmpComponent,
+    DeleteEmpComponent
   ]
 })
 export class AppModule { }

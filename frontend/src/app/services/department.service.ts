@@ -11,7 +11,7 @@ export class DepartmentService {
 
   constructor(private http: HttpClient) { }
 
-  readonly APIUrl = 'https://localhost:44303/api';
+  readonly APIUrl = 'https://localhost:5001/api';
   
   // Get Departments
   getDepartmentList(): Observable <Department[]> {
@@ -30,7 +30,7 @@ export class DepartmentService {
 
   // Put a Department
   updateDepartment(dep : Department){
-    return this.http.put(this.APIUrl+'/departments/'+ dep.DepartmentID, dep);
+    return this.http.put(this.APIUrl+'/departments/'+ dep.departmentID, dep);
   }
 
 
@@ -40,6 +40,7 @@ export class DepartmentService {
     return this._listeners.asObservable();
   }
 
+  // filter the depatment list 
   filter(filterBy: string){
     this._listeners.next(filterBy);
   }
