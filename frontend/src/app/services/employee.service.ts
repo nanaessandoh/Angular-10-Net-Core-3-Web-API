@@ -13,6 +13,7 @@ export class EmployeeService {
 
   readonly APIUrl = 'https://localhost:5001/api';
 
+  
     // Get Departments
     getEmployeeList(): Observable <Employee[]> {
       return this.http.get<Employee[]>(this.APIUrl + '/employees');

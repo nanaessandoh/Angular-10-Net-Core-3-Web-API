@@ -5,8 +5,7 @@ export class Employee{
         public employeeName: string,
         public department: string,
         public gender: string,
-        public dob: string,
+        public age: number,
         public doj: string
-
     ){}
 }

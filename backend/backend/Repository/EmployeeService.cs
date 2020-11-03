@@ -8,6 +8,21 @@ namespace backend.Repository
 {
     public class EmployeeService : IEmployee
     {
+        public int AgeFromDOB(DateTime birthDate)
+        {
+            // Get today's date
+            var todayDate = DateTime.Now;
+
+            // Calculate age
+            var age = todayDate.Year - birthDate.Year;
+            
+            // Go back to the year in which the person was born in case of a leap year
+            if (birthDate.Date > todayDate.AddYears(-age)) 
+            age--;
+
+            return age;
+        }
+
         public void CreateEmployee(Employee emp)
         {
             using var _context = new AppDBContext();

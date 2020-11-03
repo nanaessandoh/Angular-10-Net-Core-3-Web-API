@@ -40,7 +40,7 @@ export class DepartmentService {
     return this._listeners.asObservable();
   }
 
-  // filter the depatment list 
+  // Check the value of the Observer
   filter(filterBy: string){
     this._listeners.next(filterBy);
   }

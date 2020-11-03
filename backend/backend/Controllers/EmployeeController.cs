@@ -28,7 +28,7 @@ namespace backend.Controllers
             EmployeeID = x.EmployeeID,
             EmployeeName = x.EmployeeName,
             Department = _IDepartment.GetDepartmentNameById(x.DepartmentId),
-            DOB = x.DOB.ToString("yyyy-MM-dd"),
+            Age = _IEmpolyee.AgeFromDOB(x.DOB),
             DOJ = x.DOJ.ToString("yyyy-MM-dd"),
             Gender = x.Gender
             });
@@ -47,7 +47,7 @@ namespace backend.Controllers
                 EmployeeID = empItem.EmployeeID,
                 EmployeeName = empItem.EmployeeName,
                 Department = _IDepartment.GetDepartmentNameById(empItem.DepartmentId),
-                DOB = empItem.DOB.ToString("yyyy-MM-dd"),
+                Age = _IEmpolyee.AgeFromDOB(empItem.DOB),
                 DOJ = empItem.DOJ.ToString("yyyy-MM-dd"),
                 Gender = empItem.Gender
 
@@ -66,19 +66,7 @@ namespace backend.Controllers
         public ActionResult<Department> CreateEmployee(Employee empCreate)
         {
             _IEmpolyee.CreateEmployee(empCreate);
-
-            var createdEmp = new EmployeeOutputModel
-            {
-                EmployeeID = empCreate.EmployeeID,
-                EmployeeName = empCreate.EmployeeName,
-                Department = _IDepartment.GetDepartmentNameById(empCreate.DepartmentId),
-                DOB = empCreate.DOB.ToString("yyyy-MM-dd"),
-                DOJ = empCreate.DOJ.ToString("yyyy-MM-dd"),
-                Gender = empCreate.Gender
-
-            };
-
-            return CreatedAtRoute(nameof(GetEmployeeById), new { Id = createdEmp.EmployeeID }, createdEmp); // 201 Created
+            return CreatedAtRoute(nameof(GetEmployeeById), new { Id = empCreate.EmployeeID }, empCreate); // 201 Created
         }
 
         [HttpPut("{id}")]

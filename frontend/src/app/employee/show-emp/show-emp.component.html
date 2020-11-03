@@ -1,1 +1,72 @@
-<p>show-emp works!</p>
+<mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event.target.value)">
+</mat-form-field>
+
+
+<div style="overflow: auto;">
+
+    <mat-table [dataSource] = "listData" matSort>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef = "let row; columns: displayedColumns;"></mat-row>
+
+        <!-- Employee Name Column -->
+        <ng-container matColumnDef="employeeName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.employeeName }} </mat-cell>
+        </ng-container>
+
+        <!-- Employee Department Column -->
+        <ng-container matColumnDef="department">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Department</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.department }} </mat-cell>
+        </ng-container>
+
+        <!-- Employee Gender Column -->
+        <ng-container matColumnDef="gender">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Gender</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.gender }} </mat-cell>
+        </ng-container>
+
+        <!-- Employee Age Column -->
+        <ng-container matColumnDef="age">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Age</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.age }} </mat-cell>
+        </ng-container>
+
+        <!-- Employee Date of Join Column -->
+        <ng-container matColumnDef="doj">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Date of Join</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ element.doj }} </mat-cell>
+        </ng-container>
+
+        <!-- Options Column -->
+        <ng-container matColumnDef="Options">
+            <mat-header-cell *matHeaderCellDef>Options</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="onEdit(row)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="onDelete(row)">
+                    <mat-icon>delete_outline</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+    </mat-table>
+
+
+    <div class="mt-4 ml-2">
+        <button mat-raised-button color="primary" (click)="onAdd()">Add Employee</button>
+    </div>
+
+<div *ngIf="isLoading" 
+    style="display: flex; justify-content: center; background: white; overflow:hidden; padding-top: 50px;">
+<mat-progress-spinner
+    color="primary" 
+    mode="indeterminate">
+</mat-progress-spinner>
+</div>
+
+
+</div>

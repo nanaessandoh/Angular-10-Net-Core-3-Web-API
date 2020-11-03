@@ -1,4 +1,5 @@
 ﻿using backend.Persistence;
+using System;
 using System.Collections.Generic;
 
 namespace backend.Repository.Interfaces
@@ -10,5 +11,6 @@ namespace backend.Repository.Interfaces
         void CreateEmployee(Employee emp);
         void UpdateEmployee(Employee empUpdate, Employee empFromRepo);
         void DeleteEmployee(Employee emp);
+        int AgeFromDOB(DateTime date);
     }
 }

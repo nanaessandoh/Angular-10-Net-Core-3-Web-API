@@ -10,12 +10,6 @@
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef = "let row; columns: displayedColumns;"></mat-row>
 
-        <!-- Department ID Column -->
-        <ng-container matColumnDef="departmentID">
-          <mat-header-cell *matHeaderCellDef >Department ID</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.departmentID}} </mat-cell>
-        </ng-container>
-
         <!-- Department Name Column -->
         <ng-container matColumnDef="departmentName">
             <mat-header-cell *matHeaderCellDef mat-sort-header>Department Name</mat-header-cell>

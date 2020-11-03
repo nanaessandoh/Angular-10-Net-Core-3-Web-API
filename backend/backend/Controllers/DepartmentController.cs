@@ -57,14 +57,14 @@ namespace backend.Controllers
         {
             _IDepartment.CreateDepartment(deptCreate);
 
-            var createdDept = new DepartmentOutPutModel
-            {
-                DepartmentID = deptCreate.DepartmentID,
-                DepartmentName = deptCreate.DepartmentName,
-                CreatedOn = deptCreate.CreatedOn.ToString("dd/MM/yyyy")
-            };
+             var createdDept = new DepartmentOutPutModel
+             {
+                 DepartmentID = deptCreate.DepartmentID,
+                 DepartmentName = deptCreate.DepartmentName,
+                 CreatedOn = deptCreate.CreatedOn.ToString("dd/MM/yyyy")
+             };
             
-            return CreatedAtRoute(nameof(GetDepartmentById), new { Id = createdDept.DepartmentID }, createdDept); // 201 Created
+            return CreatedAtRoute(nameof(GetDepartmentById), new { Id = deptCreate.DepartmentID }, createdDept); // 201 Created
         }
 
         [HttpPut("{id}")]

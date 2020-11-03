@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { DepartmentService } from 'src/app/services/department.service';
+import { MatSnackBar} from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
@@ -8,7 +8,8 @@ import { MatDialog} from '@angular/material/dialog';
 import { AddDepComponent } from 'src/app/department/add-dep/add-dep.component';
 import { EditDepComponent } from 'src/app/department/edit-dep/edit-dep.component';
 import { DeleteDepComponent } from 'src/app/department/delete-dep/delete-dep.component';
-import { MatSnackBar} from '@angular/material/snack-bar';
+import { DepartmentService } from 'src/app/services/department.service';
+
 
 @Component({
   selector: 'app-show-dep',
@@ -31,7 +32,7 @@ export class ShowDepComponent implements OnInit {
 
  
   listData: MatTableDataSource<any> = null;
-  displayedColumns : string[] = ['departmentID','departmentName','createdOn','Options'];
+  displayedColumns : string[] = ['departmentName','createdOn','Options'];
   @ViewChild(MatSort) sort: MatSort;
   
 
@@ -39,7 +40,7 @@ export class ShowDepComponent implements OnInit {
   isLoading: boolean = true;
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
-  value = 90;
+  value: number = 90;
  
 
   ngOnInit(): void {
