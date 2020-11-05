@@ -48,7 +48,8 @@ namespace backend.Repository
         public string GetDepartmentNameById(int deptId)
         {
             using var _context = new AppDBContext();
-            return _context.Departments.FirstOrDefault(x => x.DepartmentID == deptId).DepartmentName;
+            var deptName =  _context.Departments.FirstOrDefault(x => x.DepartmentID == deptId).DepartmentName;
+            return deptName == null ?  "Not-Affiliated": deptName;
         }
 
         public void UpdateDepartment(Department deptUpdate, Department deptFromRepo)

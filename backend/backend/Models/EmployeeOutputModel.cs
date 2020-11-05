@@ -11,6 +11,7 @@ namespace backend.Models
         public string EmployeeName { get; set; }
         public string Department { get; set; }
         public string Gender { get; set; }
+        public string DOB { get; set; }
         public int Age { get; set; }
         public string DOJ { get; set; }
     }

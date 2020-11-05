@@ -28,6 +28,7 @@ namespace backend.Controllers
             EmployeeID = x.EmployeeID,
             EmployeeName = x.EmployeeName,
             Department = _IDepartment.GetDepartmentNameById(x.DepartmentId),
+            DOB = x.DOB.ToString("yyyy-MM-dd"),
             Age = _IEmpolyee.AgeFromDOB(x.DOB),
             DOJ = x.DOJ.ToString("yyyy-MM-dd"),
             Gender = x.Gender
@@ -47,6 +48,7 @@ namespace backend.Controllers
                 EmployeeID = empItem.EmployeeID,
                 EmployeeName = empItem.EmployeeName,
                 Department = _IDepartment.GetDepartmentNameById(empItem.DepartmentId),
+                DOB = empItem.DOB.ToString("yyyy-MM-dd"),
                 Age = _IEmpolyee.AgeFromDOB(empItem.DOB),
                 DOJ = empItem.DOJ.ToString("yyyy-MM-dd"),
                 Gender = empItem.Gender
